@@ -66,13 +66,17 @@ export class User extends Model {
             }
         },
             {
-                sequelize
+                sequelize,
+                tableName:'usuario'
             });
-        this.addHook('beforeSave', async user => {
-            if(user.password) {
-                user.password_hash = await bcryptjs.hash(user.password, 8);
+        this.addHook('beforeSave', async usuario => {
+            if(usuario.senhaVirtual) {
+                usuario.senha = await bcryptjs.hash(usuario.senhaVirtual, 8);
             }
         })
         return this;
+    }
+    passwordCompare(password){
+        return bcryptjs.compare(password, this.senha);
     }
 }
