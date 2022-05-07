@@ -17,7 +17,7 @@ async function update(req, res) {
         const {idUser} = req.params;
         if(!idUser) {
             return res.status(400).json({
-                errors: ["Parameter idUser not found"]
+                errors: ["Parameter idUser not found."]
             })
         }
         const user = await User.findByPk(idUser);
