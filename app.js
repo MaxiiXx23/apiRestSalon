@@ -6,6 +6,7 @@ import { resolve } from 'path';
 
 import userRoutes from './src/routes/userRoutes';
 import loginRoutes from './src/routes/loginRoutes';
+import salonRoutes from './src/routes/salonRoutes';
 
 const app = express();
 
@@ -16,5 +17,6 @@ app.use(express.static(resolve(__dirname, 'uploads')));
 
 app.use('/users/', userRoutes);
 app.use('/login/', loginRoutes);
+app.use('/salon/', salonRoutes);
 
 export {app};
