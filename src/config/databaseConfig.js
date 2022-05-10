@@ -8,10 +8,8 @@ module.exports = {
     database: process.env.DATABASE,
     define: {
         timestamps: true,
-        underscored: true,
-        underscoredAll: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
+        createdAt: true,
+        updatedAt:true
     },
     timezone: '-03:00',
 }

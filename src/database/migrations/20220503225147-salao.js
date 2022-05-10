@@ -12,7 +12,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-
       fotoPerfil: {
         type: Sequelize.STRING,
         allowNull: true,
@@ -23,9 +22,17 @@ module.exports = {
         allowNull: true,
       },
       avaliacao: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.INTEGER,
         allowNull: true,
-      }
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
     });
 
   },

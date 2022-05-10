@@ -1,41 +1,32 @@
 import Sequelize, { Model } from 'sequelize';
 import appConfig from '../config/appConfig';
 export class Salon extends Model {
-    static init(sequelize){
+    static init(sequelize) {
         super.init({
             nome: {
                 type: Sequelize.STRING,
                 defaultValue: '',
-                validate:{
-                    len:{
-                        args: [2,150],
-                        msg:'Invalid salon name.'
+                validate: {
+                    len: {
+                        args: [2, 150],
+                        msg: 'Invalid salon name.'
                     }
                 }
             },
-            fotoPerfil:{
+            fotoPerfil: {
                 type: Sequelize.STRING,
                 defaultValue: '',
             },
-            banner:{
+            banner: {
                 type: Sequelize.STRING,
-                defaultValue: '',  
+                defaultValue: '',
             },
-            avaliacao:{
+            avaliacao: {
                 type: Sequelize.FLOAT,
                 defaultValue: '',
                 validate: {
-                    isFloat:{
+                    isFloat: {
                         msg: 'Avaliacao must be float.'
-                    }
-                }
-            },
-            usuarioFk:{
-                type: Sequelize.INTEGER,
-                defaultValue:'',
-                validate:{
-                    notEmpty:{
-                        msg:'usuarioFk is empty.'
                     }
                 }
             },
@@ -43,20 +34,19 @@ export class Salon extends Model {
                 type: Sequelize.VIRTUAL,
                 defaultValue: '',
                 validate: {
-                    notEmpty:{
+                    notEmpty: {
                         msg: 'profileVirtual is empty.'
                     }
                 }
             }
 
-            
-        }, 
-            {sequelize, tableName: 'salao'});
-            
-        this.addHook('beforeSave', async salon => {
-            salon.fotoPerfil = appConfig.urlImgProfile + profileVirtual;
-        })
+
+        },
+            { sequelize, tableName: 'salao' });
+
+
 
         return this;
     }
+
 }

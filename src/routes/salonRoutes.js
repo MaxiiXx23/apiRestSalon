@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { create } from "../controllers/salonController";
+import { update } from "../controllers/salonController";
 import { tokenMiddleware } from '../middlewares/tokenMiddleware';
 
 const router = new Router();
 
-router.post ('/createSalon/:idUser', tokenMiddleware, create);
+router.put ('/updateSalon/:idSalon', tokenMiddleware, update);
 
 
 export default router;
