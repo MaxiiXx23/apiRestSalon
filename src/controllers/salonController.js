@@ -18,8 +18,8 @@ async function update(req,res) {
                 errors:['Salon not found.']
             })
         }
-        //const newSalon = await Salon.update(req.body);
-        return res.status(200).json(salon)
+        const newSalon = await salon.update(req.body);
+        return res.status(200).json(newSalon)
 
     }catch (e){
         return res.status(400).json({
