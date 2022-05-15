@@ -3,8 +3,9 @@ import databaseConfig from '../config/databaseConfig';
 
 import { User } from '../models/User';
 import { Salon } from '../models/Salon';
+import { Endereco } from '../models/Endereco';
 
-const models = [User, Salon];
+const models = [User, Salon, Endereco];
 
 const connection = new Sequelize(databaseConfig);
 
