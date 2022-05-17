@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Endereco extends Model {
+class Adress extends Model {
     static init(sequelize){
         super.init({
             rua:{
@@ -67,8 +67,5 @@ class Endereco extends Model {
         {sequelize, tableName:'endereco'})
         return this;
     }
-    static associate(models) {
-        this.hasMany(models.Salon, { foreignKey: 'salaoFk'})
-    }
 }
-export { Endereco };
+export { Adress };
