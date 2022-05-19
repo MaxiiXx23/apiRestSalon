@@ -1,5 +1,5 @@
 import { Salon } from '../models/Salon';
-
+import { Adress } from '../models/Adress'
 
 async function profile(req, res) {
     try{
@@ -10,7 +10,12 @@ async function profile(req, res) {
             })
         }
         const salon = await Salon.findByPk(idSalon,{
-            attributes:['id', 'nome', 'fotoPerfil', 'banner', 'avaliacao']
+            attributes:['id', 'nome', 'fotoPerfil', 'banner', 'avaliacao'],
+            order: [['id', 'DESC'], [ Adress, 'id', 'DESC']],
+            include:{
+                model: Adress,
+                attributes: ['rua', 'numero', 'cep', 'cidade', 'estado', 'pais']
+            }
         });
         if(!salon){
             return res.status(400).json({
